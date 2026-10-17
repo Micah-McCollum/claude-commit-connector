@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>CommitConnector.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- RangerMSP C# API. See lib/RangerMSP/README.md. -->
+    <Reference Include="CRMLib">
+      <HintPath>$(CRMLibPath)</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CheckCRMLib" BeforeTargets="ResolveAssemblyReferences" Condition="!Exists('$(CRMLibPath)')">
+    <Error Text="CRMLib.dll not found at '$(CRMLibPath)'. Build the RangerMSP C# API library and copy CRMLib.dll there (see lib/RangerMSP/README.md), or build with /p:CRMLibPath=C:\path\to\CRMLib.dll." />
+  </Target>
+
+</Project>

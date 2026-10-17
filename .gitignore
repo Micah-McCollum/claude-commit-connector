@@ -1,0 +1,17 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+*.nupkg
+
+# RangerMSP API library: licensed per the RangerMSP developer agreement, so it
+# is not committed. Copy CRMLib.dll here locally (see lib/RangerMSP/README.md).
+lib/RangerMSP/*
+!lib/RangerMSP/README.md
+
+# Machine-specific overrides. Never put the Web API password in any file.
+appsettings.Local.json
+*.local.json

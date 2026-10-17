@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <!--
+      RangerMSP's C# API (CRMLib) is a .NET Framework library, so the whole
+      solution targets .NET Framework 4.8 on Windows. The MCP SDK supports this
+      through its netstandard2.0 build.
+    -->
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+
+    <!--
+      The RangerMSP native DLLs (CmtDbEng.dll / CmtDbQry.dll) are 32-bit. They
+      are only loaded in local-database mode, not Web API mode, but building
+      x86 keeps either mode working. Change to AnyCPU if your CRMLib build is
+      Web API only.
+    -->
+    <PlatformTarget>x86</PlatformTarget>
+
+    <!-- Location of CRMLib.dll. Override with: dotnet build /p:CRMLibPath=C:\path\CRMLib.dll -->
+    <CRMLibPath Condition="'$(CRMLibPath)' == ''">$(MSBuildThisFileDirectory)lib\RangerMSP\CRMLib.dll</CRMLibPath>
+  </PropertyGroup>
+</Project>

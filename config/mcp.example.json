@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "rangermsp": {
+      "type": "stdio",
+      "command": "C:\\Tools\\CommitConnector\\CommitConnector.McpServer.exe",
+      "args": []
+    }
+  }
+}
