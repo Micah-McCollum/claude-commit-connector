@@ -43,5 +43,6 @@ Control Panel > Credential Manager > Windows Credentials > *Add a generic creden
 | Password | the DbQry password |
 
 Use the Control Panel dialog rather than `cmdkey /pass:` so the password stays
-out of shell history. For dev/test only, the connector also accepts the
-`RANGERMSP_WEBAPI_PASSWORD` environment variable.
+out of shell history. The connector also accepts the
+`RANGERMSP_WEBAPI_PASSWORD` environment variable; see
+[environment-variable-setup.md](environment-variable-setup.md).

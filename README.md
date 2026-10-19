@@ -39,6 +39,7 @@ config/
   mcp.example.json                     Claude Code (.mcp.json) registration
 docs/
   server-configuration.md          RangerMSP server + credential setup
+  environment-variable-setup.md    step-by-step: password in RANGERMSP_WEBAPI_PASSWORD
 lib/RangerMSP/                     put CRMLib.dll here (git-ignored)
 src/
   CommitConnector.Core/            everything that touches RangerMSP
