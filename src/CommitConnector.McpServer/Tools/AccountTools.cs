@@ -1,12 +1,10 @@
+using CommitConnector.Core;
+using CommitConnector.Core.Configuration;
+using CommitConnector.Core.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
-using CommitConnector.Core;
-using CommitConnector.Core.Configuration;
-using CommitConnector.Core.Models;
-using ModelContextProtocol;
-using ModelContextProtocol.Server;
 
 namespace CommitConnector.McpServer.Tools
 {
