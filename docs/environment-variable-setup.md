@@ -114,8 +114,11 @@ output. Use your server's Web API address and a city that exists in your data:
 
 ```powershell
 cd C:\path\to\claude-commit-connector
-.\samples\CommitConnector.ConnectionTest\bin\Release\net48\CommitConnector.ConnectionTest.exe http://YOUR-SERVER:4964/ "Your City"
+.\samples\CommitConnector.ConnectionTest\bin\Release\net48\CommitConnector.ConnectionTest.exe http://YOUR-SERVER:4964/ "Your City" \\YOUR-SERVER\RangerUserDev
 ```
+
+The last argument is the RangerMSP `UserDev` folder. On the RangerMSP server
+itself, use the local path instead, e.g. `C:\RangerMSP\ThirdParty\UserDev`.
 
 | Result | Meaning / fix |
 |---|---|
@@ -123,6 +126,7 @@ cd C:\path\to\claude-commit-connector
 | `No RangerMSP Web API password found…` | The variable isn't visible. Make sure you used a **new** window, spelled the name exactly, and set it under **User** for this account. |
 | `RangerMSP API error: …` mentioning password or authentication | The value is wrong, or the server still has the old password. Re-check against your password manager and `CmtWPDbQry.ini`, and confirm the CRM Server service was restarted. |
 | Timeout or connection refused | Network, port or URL problem, not the password. Check the URL includes `http://`, the port (default 4964) and the firewall. |
+| `DllFolder … is not set` / `can't be opened` | The `UserDev` folder argument is missing, wrong, or the share isn't readable by your account. See "DLL folder" in [server-configuration.md](server-configuration.md). |
 
 ---
 

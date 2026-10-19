@@ -21,10 +21,18 @@ namespace CommitConnector.Core.Configuration
         public string WebApiUrl { get; set; } = "http://localhost:4964/";
 
         /// <summary>
-        /// Optional: the RangerMSP\ThirdParty\UserDev folder. Only needed if your
-        /// CRMLib build insists on loading the native DLLs in Web API mode.
+        /// The RangerMSP\ThirdParty\UserDev folder holding the RangerMSP API DLLs.
+        /// CRMLib requires it even in Web API mode ("DLL folder must be set").
+        /// From another machine, use a UNC path to a read-only share of that
+        /// folder, e.g. \\RANGERSERVER\RangerUserDev (not a mapped drive letter).
         /// </summary>
         public string? DllFolder { get; set; }
+
+        /// <summary>
+        /// Optional: the RangerMSP\Db folder. Not used in Web API mode; set it only
+        /// if your CRMLib build refuses to initialize without it.
+        /// </summary>
+        public string? DbFolder { get; set; }
 
         /// <summary>Windows Credential Manager generic credential holding the DbQry password.</summary>
         public string CredentialTarget { get; set; } = "RangerMSP-DbQry";

@@ -18,8 +18,12 @@ by the RangerMSP developer agreement.
 To keep the DLL somewhere else, build with
 `dotnet build /p:CRMLibPath=C:\path\to\CRMLib.dll`.
 
-The RangerMSP wiki warns against copying the *native* RangerMSP DLLs out of
-`RangerMSP\ThirdParty\UserDev`. Those DLLs are for local-database mode. This
-connector uses the Web API (`UseWebAPI = true`), so it should not need them.
-If `CRM.Application.Initialize` still asks for them, set `RangerMsp:DllFolder`
-in `appsettings.json` to your `UserDev` folder.
+## CRMLib.dll is not the same as the DLL folder
+
+`CRMLib.dll` (this folder) is the .NET library the connector is compiled
+against. Separately, at runtime CRMLib needs `RangerMsp:DllFolder` to point at
+the RangerMSP server's `ThirdParty\UserDev` folder, **even in Web API mode**.
+Without it, it fails with "DLL folder must be set". The RangerMSP wiki warns
+against copying those DLLs elsewhere, so from another machine point at a
+read-only share of the server's folder instead. See "DLL folder" in
+[docs/server-configuration.md](../../docs/server-configuration.md).

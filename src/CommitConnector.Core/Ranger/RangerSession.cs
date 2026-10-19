@@ -59,8 +59,9 @@ namespace CommitConnector.Core.Ranger
             config.WebAPIUrl = _options.WebApiUrl;
             config.Password = CredentialResolver.ResolvePassword(_options);
             config.UseWebAPI = true;
-            if (!string.IsNullOrWhiteSpace(_options.DllFolder))
-                config.DllFolder = _options.DllFolder;
+            config.DllFolder = RangerFolders.RequireDllFolder(_options.DllFolder);
+            if (!string.IsNullOrWhiteSpace(_options.DbFolder))
+                config.DbFolder = _options.DbFolder;
 
             _logger.LogInformation("Connecting to RangerMSP Web API at {WebApiUrl}", _options.WebApiUrl);
             CRM.Application.Initialize(config);

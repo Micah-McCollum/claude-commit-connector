@@ -81,9 +81,11 @@ samples/
    note at the top of that file).
 4. **Test the connection** (no Claude involved):
    ```powershell
-   samples\CommitConnector.ConnectionTest\bin\Release\net48\CommitConnector.ConnectionTest.exe http://your-server:4964/ "New York"
+   samples\CommitConnector.ConnectionTest\bin\Release\net48\CommitConnector.ConnectionTest.exe http://your-server:4964/ "New York" \\your-server\RangerUserDev
    ```
-5. **Configure:** set `RangerMsp:WebApiUrl` in
+   The third argument is the RangerMSP `UserDev` folder, which CRMLib requires
+   even in Web API mode (see "DLL folder" in docs/server-configuration.md).
+5. **Configure:** set `RangerMsp:WebApiUrl` and `RangerMsp:DllFolder` in
    `src/CommitConnector.McpServer/appsettings.json`, then copy
    `src/CommitConnector.McpServer/bin/Release/net48/` to e.g. `C:\Tools\CommitConnector\`.
 6. **Register with Claude:**
